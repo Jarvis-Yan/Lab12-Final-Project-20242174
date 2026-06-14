@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: lab12-final-project-deploy
+  cancel-in-progress: true
+
 jobs:
   deploy:
     name: Deploy both applications with Docker Compose
@@ -50,8 +54,8 @@ jobs:
 
       - name: Verify deployed applications
         env:
-          SITE_URL: ${{ secrets.SITE_URL }}
-          TODO_URL: ${{ secrets.TODO_URL }}
+          SITE_URL: http://1.94.218.30:18180/
+          TODO_URL: http://1.94.218.30:18100/
         run: |
           for attempt in $(seq 1 30); do
             if curl -fsS "${SITE_URL}" | grep -F "20242174"; then

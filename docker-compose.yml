@@ -5,7 +5,7 @@ services:
     container_name: lab12-profile-site
     restart: unless-stopped
     ports:
-      - "18080:80"
+      - "18180:80"
 
   todo:
     build: ./vendor/todo-list-app
@@ -15,7 +15,7 @@ services:
     depends_on:
       - todo-db
     ports:
-      - "18000:3000"
+      - "18100:3000"
     environment:
       MYSQL_HOST: todo-db
       MYSQL_USER: root
