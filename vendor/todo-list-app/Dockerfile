@@ -2,9 +2,9 @@
 
 FROM node:22-alpine AS deps
 WORKDIR /app
-RUN apk add --no-cache python3 make g++
 COPY package.json yarn.lock ./
-RUN yarn install --production --frozen-lockfile
+RUN node -e "const fs = require('fs'); const pkg = require('./package.json'); delete pkg.dependencies.sqlite3; fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));" \
+    && yarn install --production --frozen-lockfile
 
 FROM node:22-alpine
 WORKDIR /app
