@@ -43,12 +43,30 @@ jobs:
           SERVER_APP_DIR: ${{ secrets.SERVER_APP_DIR }}
         run: |
           ssh -i ~/.ssh/lab12_deploy_key -p "${SERVER_SSH_PORT}" "${SERVER_USER}@${SERVER_HOST}" \
-            "cd '${SERVER_APP_DIR}' && docker compose up -d --build"
+            "cd '${SERVER_APP_DIR}' && COMPOSE_BAKE=false DOCKER_BUILDKIT=0 docker compose up -d --build"
 
       - name: Verify deployed applications
         env:
           SITE_URL: ${{ secrets.SITE_URL }}
           TODO_URL: ${{ secrets.TODO_URL }}
         run: |
-          curl -fsS "${SITE_URL}" | grep -F "20242174"
-          curl -fsS "${TODO_URL}" >/dev/null
+          for attempt in $(seq 1 30); do
+            if curl -fsS "${SITE_URL}" | grep -F "20242174"; then
+              break
+            fi
+            if [ "${attempt}" -eq 30 ]; then
+              exit 1
+            fi
+            sleep 2
+          done
+
+          for attempt in $(seq 1 30); do
+            if curl -fsS "${TODO_URL}" | grep -F "Todo App" \
+              && curl -fsS "${TODO_URL%/}/items" >/dev/null; then
+              break
+            fi
+            if [ "${attempt}" -eq 30 ]; then
+              exit 1
+            fi
+            sleep 2
+          done
