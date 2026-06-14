@@ -103,5 +103,5 @@ docker compose up -d --build
 - [ ] Replace TODO member names, student IDs, and contribution percentages.
 - [x] Confirm repository is public.
 - [x] Deploy both applications to the server.
-- [ ] Record the process as `.mp4`.
+- [x] Prepare `.mp4` evidence video: `evidence/Lab12-Final-Project-20242174-evidence.mp4`.
 - [ ] Submit GitHub URL and video file or video URL.
