@@ -12,8 +12,8 @@ Basic Development and Operation - Lab 12 Final Work
 
 ## Application URLs
 
-- Personal website: <http://1.94.218.30:8080/>
-- Todo application: <http://1.94.218.30:8000/>
+- Personal website: <http://1.94.218.30:18080/>
+- Todo application: <http://1.94.218.30:18000/>
 - GitHub repository: <https://github.com/Jarvis-Yan/Lab12-Final-Project-20242174>
 
 ## Project Structure
@@ -37,8 +37,8 @@ docker compose up -d --build
 
 Open:
 
-- <http://localhost:8080/>
-- <http://localhost:8000/>
+- <http://localhost:18080/>
+- <http://localhost:18000/>
 
 Stop:
 
@@ -60,8 +60,8 @@ EXPOSE 80
 
 The same Docker Compose deployment starts both applications on one server:
 
-- `profile-site`: the website built from this repository, exposed on port `8080`.
-- `todo`: the open source Docker sample `dockersamples/todo-list-app`, exposed on port `8000`.
+- `profile-site`: the website built from this repository, exposed on port `18080`.
+- `todo`: the open source Docker sample `dockersamples/todo-list-app`, exposed on port `18000`.
 - `todo-db`: the MySQL database used by the todo application.
 
 Todo application source:
@@ -81,8 +81,8 @@ Required repository secrets:
 | `SERVER_USER` | `root` |
 | `SERVER_APP_DIR` | `/opt/lab12-final-project-20242174` |
 | `SERVER_SSH_KEY` | Private SSH key used only for deployment |
-| `SITE_URL` | `http://1.94.218.30:8080/` |
-| `TODO_URL` | `http://1.94.218.30:8000/` |
+| `SITE_URL` | `http://1.94.218.30:18080/` |
+| `TODO_URL` | `http://1.94.218.30:18000/` |
 
 Deployment command executed by the workflow:
 
