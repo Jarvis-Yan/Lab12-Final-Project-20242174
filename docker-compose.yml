@@ -5,7 +5,7 @@ services:
     container_name: lab12-profile-site
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "8080:80"
 
   todo:
     build: ./vendor/todo-list-app
