@@ -6,9 +6,9 @@ Basic Development and Operation - Lab 12 Final Work
 
 | Name | GitHub | Student ID | Image | Contribution |
 | --- | --- | --- | --- | --- |
-| Jerry Yan | `Jarvis-Yan` | `20242174` | ![Jarvis-Yan](site/assets/jarvis-yan.png) | TODO% |
-| Chunrui Miao | `TeRiRi114514` | `20242170` | ![TeRiRi114514](site/assets/Vergil.jpg) | TODO% |
-| TODO: real name | `djz08` | TODO | ![djz08](site/assets/djz08.png) | TODO% |
+| Jerry Yan | `Jarvis-Yan` | `20242174` | ![Jarvis-Yan](site/assets/jarvis-yan.png) | 40% |
+| Chunrui Miao | `TeRiRi114514` | `20242170` | ![TeRiRi114514](site/assets/Vergil.jpg) | 30% |
+| TODO: real name | `djz08` | TODO | ![djz08](site/assets/djz08.png) | 30% |
 
 ## Application URLs
 
